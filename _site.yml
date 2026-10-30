@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "Experience"
       href: experience.html
-    - text: "dashboard"
+    - text: "Dashboard"
       href: dashboard.html
   right:
     - text: "CV"

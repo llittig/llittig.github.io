@@ -1,5 +1,5 @@
 ---
-title: "Instacart Shopping Pattern"
+title: "Instacart Shopping Patterns"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
