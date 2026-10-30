@@ -1,20 +1,21 @@
-name: "Yay internet!"
+name: "lauren-littig"
 output_dir: "."
 navbar:
   title: "Home"
-  right:
-    - text: "About"
-      href: about.html
-    - text: "Plots"
-      href: plots.html
-    - text: "Plotly"
-      href: plotly.html
+  left:
+    - text: "Experience"
+      href: experience.html
     - text: "Dashboard"
       href: dashboard.html
+  right:
+    - text: "CV"
+      href: files/Lauren_Littig_CV.pdf
     - icon: fa-envelope fa-lg
       href: mailto:ll3969@cumc.columbia.com
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/lauren-littig
     - icon: fa-github fa-lg
       href: http://github.com/llittig/
 output:
   html_document:
-    theme: cosmo
+    theme: flatly

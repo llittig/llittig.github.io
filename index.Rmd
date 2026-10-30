@@ -1,5 +1,5 @@
 ---
-title: "My awesome website"
+title: "Lauren Littig"
 output: 
   html_document:
     toc: true
@@ -7,17 +7,6 @@ output:
     theme: cosmo
 ---
 
-# This is Jeff's awesome website
-
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
 I learned all my data science from [p8105](https://p8105.com)!
 
-To learn about this page, go [here](about.html)
-
-# Some other stuff that's really cool
-
-Heres a picture I took:
-
-<img src="images/ted.jpg" style="width:75%">
-
-Another cool thing is scatterplots. Check this [out](plots.html).
+To learn about my academic and professional experience, go [here](experience.html)

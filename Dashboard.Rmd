@@ -1,59 +1,115 @@
 ---
-title: "A dashboard"
+title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    theme: flatly
 ---
 
 ```{r setup, include=FALSE}
-library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
-
+library(flexdashboard)
 library(plotly)
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Scatterplot
-
 ```{r}
-data(nyc_airbnb)
+data(instacart)
 
-nyc_airbnb = nyc_airbnb |>
-  mutate(rating = review_scores_location/2) |> 
-  select(neighbourhood_group, neighbourhood, rating, price, room_type, lat, long) |> 
-  filter(
-    !is.na(rating),
-    neighbourhood_group == "Manhattan",
-    room_type == "Entire home/apt",
-    price %in% 100:500)
+set.seed(8105)
 
-nyc_airbnb |> 
-  mutate(text_label = str_c("Price:$", price, "\nRating: ", rating)) |> 
-  plot_ly(
-    x = ~lat, y = ~long, type = "scatter", mode = "markers", color = ~price, text = ~text_label, alpha = 0.5)
+sampled_orders =
+  instacart |> 
+  distinct(order_id) |> 
+  slice_sample(n = 5000)
+
+instacart_df =
+  instacart |> 
+  semi_join(sampled_orders, by = "order_id")
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Boxplot
+# Plot 1. What are people buying?
 
 ```{r}
-nyc_airbnb |> 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) |> 
-    plot_ly(y = ~price, color = ~neighbourhood, type = "box", colors = "viridis")
-
+instacart_df |> 
+  count(department) |> 
+  plot_ly(
+    x = ~department,
+    y = ~n,
+    type = "bar"
+  )
 ```
 
-### Chart C
+# Plot 2. When are people shopping?
 
 ```{r}
-nyc_airbnb |> 
-  count(neighbourhood) |> 
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) |> 
-  plot_ly(x = ~neighbourhood, y = ~n, type = "bar", color = ~neighbourhood, colors = "viridis")
+instacart_df |> 
+  distinct(order_id, order_dow, order_hour_of_day) |> 
+  count(order_dow, order_hour_of_day) |> 
+  mutate(
+    day = factor(
+      order_dow,
+      levels = 0:6,
+      labels = c("Sun", "Mon", "Tue", "Wed",
+                 "Thu", "Fri", "Sat")
+    )
+  ) |> 
+  plot_ly(
+    x = ~order_hour_of_day,
+    y = ~n,
+    color = ~day,
+    type = "scatter",
+    mode = "lines+markers",
+    hovertemplate = paste(
+      "Hour: %{x}:00",
+      "<br>Orders: %{y}"
+    )
+  ) |> 
+  layout(
+    title = "Instacart Orders by Day and Hour",
+    xaxis = list(
+      title = "Hour of Day",
+      dtick = 2
+    ),
+    yaxis = list(
+      title = "Number of Orders",
+      rangemode = "tozero"
+    ),
+    legend = list(
+      title = list(text = "Day of Week")
+    )
+  )
+```
+
+# Does basket size vary by days of the week?
+
+```{r}
+instacart_df |> 
+  count(order_id, order_dow, name = "n_products") |> 
+  mutate(
+    order_dow = factor(
+      order_dow,
+      levels = 0:6,
+      labels = c("Sun", "Mon", "Tue", "Wed",
+                 "Thu", "Fri", "Sat")
+    )
+  ) |> 
+  plot_ly(
+    x = ~order_dow,
+    y = ~n_products,
+    type = "box",
+    color = ~order_dow
+  ) |> 
+  layout(
+    xaxis = list(title = "Day of Week"),
+    yaxis = list(title = "Number of Products per Order"),
+    showlegend = FALSE
+  )
 ```
