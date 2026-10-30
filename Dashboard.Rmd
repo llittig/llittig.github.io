@@ -1,10 +1,12 @@
 ---
-title: "Instacart Shopping Patterns"
+title: "Instacart Analysis"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
     theme: flatly
+    navbar:
+      - { title: "Home", href: "index.html", align: left }
 ---
 
 ```{r setup, include=FALSE}
@@ -34,11 +36,10 @@ instacart_df =
 
 ```
 
-Column {data-width=650}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
-## Plot 1. What are people buying?
-
+### What are people buying?
 ```{r}
 instacart_df |> 
   count(department) |> 
@@ -50,11 +51,10 @@ instacart_df |>
 ```
 
 
-Column {data-width=350}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
-## Plot 2. When are people shopping?
-
+### When are people shopping?
 ```{r}
 instacart_df |> 
   distinct(order_id, order_dow, order_hour_of_day) |> 
@@ -94,8 +94,7 @@ instacart_df |>
   )
 ```
 
-## Does basket size vary by days of the week?
-
+### Does basket size vary by days of the week?
 ```{r}
 instacart_df |> 
   count(order_id, order_dow, name = "n_products") |> 
