@@ -40,4 +40,4 @@ cerebrovascular disease, and cognitive aging.
 
 ## Curriculum Vitae
 
-[Download my CV (PDF)](Files/Lauren_Littig_CV.pdf)
+[Download my CV (PDF)](files/Lauren_Littig_CV.pdf)

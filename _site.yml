@@ -6,7 +6,7 @@ navbar:
     - text: "Experience"
       href: experience.html
     - text: "Dashboard"
-      href: dashboard.html
+      href: Dashboard.html
   right:
     - text: "CV"
       href: files/Lauren_Littig_CV.pdf
