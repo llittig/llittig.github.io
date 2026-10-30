@@ -2,12 +2,42 @@
 title: "Academic and Professional Experience"
 output: 
   html_document:
-    toc: true
-    toc_float: true
+    toc: false
     theme: flatly
 ---
 
-I am an MPH in Epidemiology Candidate at Columbia University Mailman School of Public Health. I received my BA in Psychology from the University of California, Berkeley in May 2023 while rowing as a Division 1 athlete. I worked as a Clinical Research Associate in the de Havenon Lab at the Yale Stroke Center for two years before coming to Columbia. While pursuing my MPH, I also work as a Clinical Research Coordinator in the Brickman Lab at Columbia University's Taub Institute for Research on Alzheimer's Disease and the Aging Brain.
+## Education
 
-* [Recent publications](https://scholar.google.com/citations?user=uXCyGXAAAAAJ&hl=en)
-* [Download CV](Lauren_Littig_CV.pdf)
+**Columbia University Mailman School of Public Health**  
+Master of Public Health, Epidemiology | Expected May 2027
+
+- Certificate in Chronic Disease Epidemiology
+
+**University of California, Berkeley**  
+Bachelor of Arts, Psychology | May 2023
+
+## Research Experience
+
+**Columbia University | Taub Institute for Research on Alzheimer's Disease and the Aging Brain**
+
+*Clinical Research Coordinator, Brickman Lab | 2025–Present*
+
+**Yale School of Medicine | Yale Stroke Center**
+
+*Clinical Research Associate, de Havenon Lab | 2023–2025*
+
+## Publications
+
+My research focuses on vascular risk factors,
+cerebrovascular disease, and cognitive aging.
+
+[View my publications on Google Scholar](https://scholar.google.com/citations?user=uXCyGXAAAAAJ&hl=en)
+
+## Current Community Engagement
+
+- **CIPHER:** President, Community Public Health Literacy
+- **CoSMO Free Clinic:** Health Coach
+
+## Curriculum Vitae
+
+[Download my CV (PDF)](Files/Lauren_Littig_CV.pdf)

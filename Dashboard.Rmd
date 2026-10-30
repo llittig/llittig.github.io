@@ -1,5 +1,5 @@
 ---
-title: "Dashboard"
+title: "Instacart Shopping Pattern"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -12,12 +12,13 @@ library(tidyverse)
 library(p8105.datasets)
 library(flexdashboard)
 library(plotly)
-```
 
-Column {data-width=650}
------------------------------------------------------------------------
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
 
-```{r}
 data(instacart)
 
 set.seed(8105)
@@ -30,12 +31,13 @@ sampled_orders =
 instacart_df =
   instacart |> 
   semi_join(sampled_orders, by = "order_id")
+
 ```
 
-Column {data-width=350}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
-# Plot 1. What are people buying?
+## Plot 1. What are people buying?
 
 ```{r}
 instacart_df |> 
@@ -47,7 +49,11 @@ instacart_df |>
   )
 ```
 
-# Plot 2. When are people shopping?
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+## Plot 2. When are people shopping?
 
 ```{r}
 instacart_df |> 
@@ -88,7 +94,7 @@ instacart_df |>
   )
 ```
 
-# Does basket size vary by days of the week?
+## Does basket size vary by days of the week?
 
 ```{r}
 instacart_df |> 
