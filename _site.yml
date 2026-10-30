@@ -9,11 +9,11 @@ navbar:
       href: Dashboard.html
   right:
     - text: "CV"
-      href: files/Lauren_Littig_CV.pdf
+      href: Files/Lauren_Littig_CV.pdf
     - icon: fa-envelope fa-lg
       href: mailto:ll3969@cumc.columbia.edu
     - icon: fa-linkedin fa-lg
-      href: https://www.linkedin.com/in/lauren-littig
+      href: https://www.linkedin.com/in/laurenlittig
     - icon: fa-github fa-lg
       href: http://github.com/llittig/
 output:
